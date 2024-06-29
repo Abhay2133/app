@@ -13,7 +13,7 @@ export class Router{
     use(...args:Array<any>){
         if(args.length != 1 && args.length != 2) throw new Error(`'use' method of 'Router' can have only 1 (handler only) or 2 (url, handler) argument\nYou passed ${args.length}`);
         
-        let handler:Handler = {url:args.length==2?args[0]:"", handler: args.length == 1 ? args[0]:args[1]};
+        let handler:Handler = {url:args.length==2?args[0]:"", handler: args.length == 1 ? args[0]:args[1], match:()=>{}};
         this.routeHandler.push(handler);
         return this;
     }
