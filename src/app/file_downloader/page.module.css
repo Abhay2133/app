@@ -1,8 +1,10 @@
-
-
 .form{
     outline: 1px solid var(--all-border);
     border-radius: 10px;
     padding: 30px;
     margin: 10px;
+    position: relative;
+    width: min(100%, 500px);
+    margin: 2%;
+    overflow: auto;
 }

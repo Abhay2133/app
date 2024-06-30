@@ -25,8 +25,10 @@ export default function FileDownloader(props: any) {
         </header>
         <section className="flex justify-center" >
             <form className={styles.form} onSubmit={handleSubmit}>
-                <Input1 label="Enter URL" oninput={setUrl} id="url-input" />
-                <PrimaryButton text="Submit" style={{ margin: `10px` }} />
+                <Input1 autoComplete="off" style={{margin: `10px`}} label="Enter URL" oninput={setUrl} id="url-input" />
+                {/* <Input1 autoComplete="off" style={{margin: `10px`}} label="Enter URL" oninput={setUrl} id="url-input" />
+                <Input1 autoComplete="off" style={{margin: `10px`}} label="Enter URL" oninput={setUrl} id="url-input" /> */}
+                <PrimaryButton text="Submit" style={{ margin: `10px 20px` }} />
             </form>
         </section>
     </>)
