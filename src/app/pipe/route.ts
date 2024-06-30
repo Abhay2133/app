@@ -1,3 +1,5 @@
+// export const dynamic = 'force-dynamic'
+
 import { IncomingMessage } from "http";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
@@ -9,10 +11,10 @@ const getClass = (url: string) => url.startsWith("https") ? https : http;
 
 const getFilename = (url: string) => url.split("/").at(-1)?.split("?").at(0);
 
-export async function GET(request: NextRequest) {
-    let _url = new URL(request.url);
-    let url = _url.searchParams.get('url');
-    console.log({ url })
+async function _get(request: NextRequest) {
+    let _url = new URL(request?.url);
+    let url  = _url.searchParams.get('url');
+    // console.log({ url })
     if (!url)
         return new Response("PIPE?url=<your-url>");
 
@@ -37,5 +39,17 @@ export async function GET(request: NextRequest) {
     } catch (err) {
         console.error(err);
         return NextResponse.json(err);
+    }
+}
+
+export async function GET(request:NextRequest) {
+    // const headersList = headers()
+    // const referer = headersList.get('referer');
+    // console.log({referer})
+    try{
+        return await _get(request);
+    } catch(ee){
+        console.error(ee);
+        return NextResponse.json(ee);
     }
 }

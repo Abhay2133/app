@@ -1,0 +1,20 @@
+
+.primary_btn{
+    font-size: 1rem;
+    padding: 8px 15px;
+    background-color: royalblue;
+    color: #fff;
+    border-radius: 5px;
+    outline: 1px solid transparent;
+    transition:100ms;
+}
+
+.primary_btn:focus{
+    /* box-shadow: 0 0 5px 0 royalblue; */
+    outline: 1px solid royalblue;
+    outline-offset: 2px;
+}
+
+.primary_btn:active{
+    transform: scale(0.9);
+}
