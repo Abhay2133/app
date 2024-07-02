@@ -6,7 +6,5 @@ export const GET = async (reqest:NextRequest) =>{
     return NextResponse.json({"counter":counter.value})
 }
 
-export function POST(reqest:NextRequest){
-    counter.value += 1;
-    return NextResponse.json({"counter": counter.value})
-}
+// Opt out of caching for all data requests in the route segment
+export const dynamic = 'force-dynamic'
