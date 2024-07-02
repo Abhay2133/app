@@ -14,8 +14,20 @@ datasource db {
 }
 
 model User {
-    id       Int     @id @default(autoincrement())
-    email    String  @unique
-    name     String?
-    password String
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
+}
+
+model Courses {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  duration DateTime
+  price    Float
+}
+
+model Counter {
+  id Int @id @default(autoincrement())
+  value Int
 }
