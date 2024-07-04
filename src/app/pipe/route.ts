@@ -21,15 +21,15 @@ async function _get(request: NextRequest) {
     try {
         let stream: ReadableStream = await new Promise((resolve, reject) => {
             getClass(url).get(url, (res: any) => {
+                res.on("error", (err: Error) => {
+                    reject(err);
+                })
                 console.log(res.url)
                 if (res.statusCode < 400) {
                     return resolve(res);
                 } else {
                     return reject({error : `status code >= 400`, statusCode : res.statusCode, status: res.statusMessage})
                 }
-                res.on("error", (err: Error) => {
-                    reject(err);
-                })
             })
         });
         let a: any = stream;
