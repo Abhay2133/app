@@ -22,7 +22,7 @@ async function _get(request: NextRequest) {
         let stream: ReadableStream = await new Promise((resolve, reject) => {
             getClass(url).get(url, (res: any) => {
                 res.on("error", (err: Error) => {
-                    reject(err);
+                    reject({error: `internal error`, message : err.message});
                 })
                 console.log(res.url)
                 if (res.statusCode < 400) {
