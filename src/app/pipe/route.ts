@@ -28,7 +28,7 @@ async function _get(request: NextRequest) {
                 if (res.statusCode < 400) {
                     return resolve(res);
                 } else {
-                    return reject({error : `status code >= 400`, statusCode : res.statusCode, status: res.statusMessage})
+                    return reject(JSON.parse(JSON.stringify({error : `status code >= 400`, statusCode : res.statusCode, status: res.statusMessage})))
                 }
             })
         });
